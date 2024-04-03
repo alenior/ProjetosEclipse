@@ -1,6 +1,7 @@
 /**
- * Confirmação de exclusão de um contato.
+ * Confirmacao de exclusao de um contato.
  * @author Aluno Alencar Júnior
+ * @param idcon
  */
  
  function confirmar(idcon){

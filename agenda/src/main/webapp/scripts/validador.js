@@ -1,5 +1,5 @@
 /**
- * Validação de formulário
+ * Validacao de formulario
  * @author Alencar Júnior (by José de Assis)
  */
  
