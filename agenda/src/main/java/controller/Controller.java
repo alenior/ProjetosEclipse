@@ -18,26 +18,48 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.DAO;
 import model.JavaBeans;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Controller.
+ */
 @WebServlet(name = "controller", urlPatterns = { "/controller", "/main", "/insert", "/select", "/update", "/delete",
 		"/report" })
 public class Controller extends HttpServlet {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The dao. */
 	DAO dao = new DAO();
+	
+	/** The contato. */
 	JavaBeans contato = new JavaBeans();
 
+	/**
+	 * Instantiates a new controller.
+	 */
 	public Controller() {
 		super();
 
 	}
 
+	/**
+	 * Do get.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getServletPath();
+		// Teste de recebimento de requisições.
 		System.out.println(action);
 		if (action.equals("/main")) {
 			contatos(request, response);
 		} else if (action.equals("/insert")) {
-			novoContato(request, response);
+			adicionarContato(request, response);
 		} else if (action.equals("/select")) {
 			listarContato(request, response);
 		} else if (action.equals("/update")) {
@@ -54,6 +76,14 @@ public class Controller extends HttpServlet {
 		 **/
 	}
 
+	/**
+	 * Contatos.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	// Listar contatos.
 	protected void contatos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -72,8 +102,16 @@ public class Controller extends HttpServlet {
 		rd.forward(request, response);
 	}
 
+	/**
+	 * Adicionar contato.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	// Novo contato.
-	protected void novoContato(HttpServletRequest request, HttpServletResponse response)
+	protected void adicionarContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		/**
 		 * teste de recebimento de dados do formulário.
@@ -91,14 +129,21 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("main");
 	}
 
+	/**
+	 * Listar contato.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	// Editar contato
 	protected void listarContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Recebimento do id do contato que será editado.
-		String idcon = request.getParameter("idcon");
 		// System.out.println(idcon);
 		// Setar a variável JavaBeans.
-		contato.setIdcon(idcon);
+		contato.setIdcon(request.getParameter("idcon"));
 		// Executar o método selecionarContato (DAO).
 		dao.selecionarContato(contato);
 		// Teste de recebimento.
@@ -117,6 +162,14 @@ public class Controller extends HttpServlet {
 		rd.forward(request, response);
 	}
 
+	/**
+	 * Editar contato.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void editarContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Teste de recebimento.
@@ -137,20 +190,35 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("main");
 	}
 
+	/**
+	 * Remover contato.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	// Remover contato.
 	protected void removerContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Recebimento do id do contato a ser excluído (validador.js).
-		String idcon = request.getParameter("idcon");
 		// System.out.println(idcon);
 		// Setar a variável idcon JavaBeans.
-		contato.setIdcon(idcon);
+		contato.setIdcon(request.getParameter("idcon"));
 		// Executar o método deletarContato (DAO) passando o objeto contato.
 		dao.deletarContato(contato);
 		// Redirecionar para o documento agenda.jsp (atualizando as alterações).
 		response.sendRedirect("main");
 	}
 
+	/**
+	 * Gerar relatorio.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	// Gerar relatório em pdf.
 	protected void gerarRelatorio(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -159,7 +227,7 @@ public class Controller extends HttpServlet {
 			// Tipo de conteúdo.
 			response.setContentType("apllication/pdf");
 			// Nome do documento.
-			response.addHeader("Content-Disposition", "inline; filename="+ "contatos.pdf");
+			response.addHeader("Content-Disposition", "inline; filename=" + "contatos.pdf");
 			// Criar o documento.
 			PdfWriter.getInstance(documento, response.getOutputStream());
 			// Abrir o documento -> conteúdo.
@@ -190,3 +258,4 @@ public class Controller extends HttpServlet {
 		}
 	}
 }
+
