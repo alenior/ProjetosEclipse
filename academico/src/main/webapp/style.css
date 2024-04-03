@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+body {
+	font-size: 1em; /* Equivale a 16px ou tamanho 12. */
+	font-weight: 4;
+}
+
+h1 {
+	color: #FF0000;
+}
+
+.Botao1 {
+	text-decoration: none;
+	background-color: #B22222;
+	padding: 5px 10px 5px 10px;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 700;
+	border-radius: 5px;
+}
