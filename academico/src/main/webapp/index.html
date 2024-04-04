@@ -2,21 +2,24 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consulta de Aluno</title>
 <link rel="icon" href="imagens/favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div id = "div">
-		<img alt="Imagem de tarefas" src="imagens/tarefas.png">
+	<div>
 		<h1>Consulta de Aluno</h1>
+		<img alt="Imagem de tarefas" src="imagens/tarefas.png">
 		<h2>Hello World!</h2>
 		<h2>Hello You!</h2>
-		<form action="ConsultaAluno" method="GET">
+		<form onsubmit="return validar()" name="frm" action="ConsultaAluno" method="GET">
 			<label for="matricula">Matrícula do Aluno:</label> <input type="text"
-				id="matricula" name="matricula" class="Caixa1">
+				id="matricula" name="matricula" class="Caixa1"
+				placeholder="Matrícula">
 			<button type="submit" class="Botao1">Consultar</button>
 		</form>
 	</div>
+	<script src="scripts/validador.js"></script>
 </body>
 </html>

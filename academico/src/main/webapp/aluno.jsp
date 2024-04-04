@@ -15,10 +15,10 @@
 		Nome:
 		<%=request.getParameter("nome")%></p>
 	<p>
-		Média:
+		Mï¿½dia:
 		<%=request.getParameter("media")%></p>
 	<p>
-		Frequência:
+		Frequï¿½ncia:
 		<%=request.getParameter("frequencia")%></p>
 </body>
 </html>
