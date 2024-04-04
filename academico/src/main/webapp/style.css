@@ -1,20 +1,95 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
-	font-size: 1em; /* Equivale a 16px ou tamanho 12. */
-	font-weight: 4;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1em;
+	font-weight: 400;
+	background-color: #D3D3D3;
+	border-radius: 5px;
+	width: 777px;
+	display: center;
+}
+
+div {
+	margin: auto;
+}
+
+p {
+	color: #008B8B;
+	font-weight: 555;
 }
 
 h1 {
-	color: #FF0000;
+	color: #66bbff;
+}
+
+h2 {
+	color: #66bbff;
+	text-decoration: underline;
+}
+
+label {
+	color: #0000FF;
 }
 
 .Botao1 {
 	text-decoration: none;
-	background-color: #B22222;
+	background-color: #66bbff;
 	padding: 5px 10px 5px 10px;
 	color: #fff;
 	font-size: 1.2em;
 	font-weight: 700;
 	border-radius: 5px;
+	border: 0;
+	cursor: pointer;
+}
+
+.Botao2 {
+	text-decoration: none;
+	background-color: #d51213;
+	padding: 5px 10px 5px 10px;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 700;
+	border-radius: 5px;
+}
+
+.Caixa1 {
+	width: 320px;
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #66bbff;
+	border-radius: 5px;
+}
+
+.Caixa2 {
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #66bbff;
+	border-radius: 5px;
+}
+
+#caixa3 {
+	padding: 5px;
+	margin-bottom: 10px;
+	border: 1px solid #ff0000;
+}
+
+#tabela {
+	margin-top: 30px;
+	border-collapse: collapse;
+}
+
+#tabela th {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: Left;
+	background-color: #66bbff;
+	color: #fff;
+}
+
+#tabela td {
+	border: 1px solid #ddd;
+	padding: 10px;
 }
