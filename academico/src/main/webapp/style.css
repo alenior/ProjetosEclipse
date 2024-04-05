@@ -29,7 +29,10 @@ p {
 
 p > div {
 	text-align: center;
-	
+}
+
+.Pgf {
+	font-weight: 777;
 }
 
 h1 {
